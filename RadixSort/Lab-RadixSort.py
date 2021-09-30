@@ -1,5 +1,5 @@
 # Laboratorio 3
-# Nome: Thiago Leonel Rancan Bischoff
+# Nome: Thiago Leonel Rancan Bischoff e Fernando Vieira Utzig
 # Turma: B
 import time
 
