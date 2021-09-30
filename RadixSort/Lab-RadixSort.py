@@ -1,6 +1,4 @@
 # Laboratorio 3
-# Nome: Thiago Leonel Rancan Bischoff e Fernando Vieira Utzig
-# Turma: B
 import time
 
 # Função que retira passa para outro vetor apenas palavras que contém caracteres entre A e Z
