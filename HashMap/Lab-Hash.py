@@ -64,6 +64,7 @@ for i in range(0, 4):
             if k == 49:
                 arq.write(f'Média: {media}\n')
                 arq.write(f'Maximo: {maior_colisao}\n')
+    
     vet.clear()                                     # Limpar o vetor depois de usar para mudar para o proximo tamanho
     vet_colisoes.clear()                            # Limpar o vetor depois de usar para mudar os valores das colisoes
     soma = 0
