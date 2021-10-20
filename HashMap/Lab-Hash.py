@@ -25,6 +25,10 @@ def consulta(arr, word, M):
 
 
 M = [503, 2503, 5003, 7507]                         # Tamanhos das tabelas hash
+vet_colisoes = []                                   # Vetor que guarda as colisoes
+soma = 0
+media = 0
+maior_colisao = 0
 
 f = open('nomes_10000.txt', 'r')                    # Coloca os 10 mil nomes em nomes
 nomes = f.readlines()
@@ -43,8 +47,25 @@ for i in range(0, 4):
     for k in range(0, 50):
         aux = consulta(vet, nomes_consultas[k], M[i])                     # Chamada da função de consulta
 
+        if k == 1:                                                        # Calcula qual a maior colisão que aconteceu
+            maior_colisao = aux
+        elif aux > maior_colisao:
+            maior_colisao = aux
+
+        vet_colisoes.append(aux)                                          # Insere no vetor a colisão atual
+        if k == 49:                                                       # Se o vetor estiver completo calcula a media
+            for m in range(0, 50):
+                soma = soma + vet_colisoes[m]
+            media = soma / 50
+
         tam_palavra = len(nomes_consultas[k])
         with open(nome_arq, 'a') as arq:
             arq.write(f'{nomes_consultas[k][0:tam_palavra-1]} {aux}\n')     # Retira o "\n" para escrever no arquivo
-
+            if k == 49:
+                arq.write(f'Média: {media}\n')
+                arq.write(f'Maximo: {maior_colisao}\n')
     vet.clear()                                     # Limpar o vetor depois de usar para mudar para o proximo tamanho
+    vet_colisoes.clear()                            # Limpar o vetor depois de usar para mudar os valores das colisoes
+    soma = 0
+    media = 0
+    maior_colisao = 0
